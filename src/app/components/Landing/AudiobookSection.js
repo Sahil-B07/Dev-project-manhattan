@@ -4,7 +4,7 @@ import Radio from '../Models/Radio'
 
 const AudiobookSection = () => {
     return (
-        <section className="bg-black h-screen flex">
+        <section className="bg-black h-screen flex" id='audio'>
             <div className="w-screen grid md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
             <motion.div 
             className='flex md:col-span-3 md:col-ends-5 justify-center items-center self-center relative'

@@ -22,6 +22,7 @@ const Typewriter = ({isMobile}) => {
       SpIntensity={50}
       SpLightPos={[2, 10, 0]}
       SpDistance={14}
+      ambIntensity={1}
     >
       <TypewriterModel isMobile={isMobile}/>
       <ContactShadows opacity={0.4} blur={1} color="#000000" position={[-0.1,0,0]} far={1} />

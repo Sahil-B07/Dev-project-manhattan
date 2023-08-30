@@ -36,7 +36,8 @@ const Scene = (props) => {
     SpLightPos,
     SpDistance,
     smHeight,
-    smWidth
+    smWidth,
+    ambIntensity
   } = props;
 
   const canvasStyle = isMobile
@@ -68,7 +69,7 @@ const Scene = (props) => {
           target={target}
           makeDefault
         />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={ambIntensity} />
       <directionalLight
         color={color}
         position={DlightPos}

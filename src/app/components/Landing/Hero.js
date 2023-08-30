@@ -19,7 +19,7 @@ const Hero = () => {
         <div></div>
       </div>
 
-      <div className="grid w-screen md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
+      <div className="grid w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
         <div className="mt-10 mr-auto md:col-span-2 md:col-start-2 md:flex md:flex-col place-self-center">
           <motion.h1 className="max-w-2xl mb-4 text-5xl font-extrabold tracking-tight leading-none md:text-6xl xl:text-8xl text-white"
           initial="hidden"
