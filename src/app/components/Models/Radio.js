@@ -57,8 +57,6 @@ const RadioModel = () => {
         {/* Radio */}
         <mesh castShadow>
           <RadioMusic/>
-        <group>
-        </group>
           <primitive
             object={model.scene}
             scale={1}
