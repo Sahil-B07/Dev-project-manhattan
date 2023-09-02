@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion"
-import Radio from '../Models/Radio'
+import Radio from '../../components/Models/Radio'
 
 const AudiobookSection = () => {
     return (

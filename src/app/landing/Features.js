@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Typewriter from "../Models/Typewriter";
-import { typeWriter } from "@/app/Animation";
+import Typewriter from "../../components/Models/Typewriter";
+import { typeWriter } from "@/Animation";
 
 const Features = () => {
   return (

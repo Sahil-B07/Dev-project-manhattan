@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ImQuill } from "react-icons/im";
-import { headPara, headText } from "@/app/Animation";
-import DisSphere from "../Models/DisSphere";
+import { headPara, headText } from "@/Animation";
+import DisSphere from "../../components/Models/DisSphere";
 
 
 const Hero = () => {

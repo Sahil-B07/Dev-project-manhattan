@@ -1,6 +1,6 @@
 "use client"
 
-import Navbar from "../Navbar"
+import Navbar from "../../components/Navbar/page"
 import AudiobookSection from "./AudiobookSection"
 import Features from "./Features"
 import Hero from "./Hero"

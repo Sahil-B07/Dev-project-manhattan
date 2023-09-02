@@ -5,7 +5,7 @@ import {
   PositionalAudio,
   useAnimations,
 } from "@react-three/drei";
-import RadioShade from "../../../../public/Shadow";
+import RadioShade from "../../../public/Shadow";
 import Scene from "../Canvas";
 import RadioMusic from "../Audio/radioMusic";
 

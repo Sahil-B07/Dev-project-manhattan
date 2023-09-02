@@ -1,6 +1,6 @@
 import React from "react";
 import { useFrame } from "@react-three/fiber";
-import StoreShade from "../../../../public/Shadow";
+import StoreShade from "../../../public/Shadow";
 import Scene from "../Canvas";
 
 const Book = (props) => {

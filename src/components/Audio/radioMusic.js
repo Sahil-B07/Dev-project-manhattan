@@ -1,4 +1,4 @@
-import ScrollNavigation from "@/app/Utils/ScrollNavigation";
+import ScrollNavigation from "@/Utils/ScrollNavigation";
 import { PositionalAudio } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 
