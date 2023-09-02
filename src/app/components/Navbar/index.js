@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
 
 const Navbar = () => {
-  const [activeLink, setactiveLink] = useState("home");
   const handleClick = (e) => {
     setactiveLink(e.current.value);
   };
