@@ -1,67 +1,33 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ScrollNavigation() {
-  const [y, setY] = useState(0);
-  const [playPause, setplayPause] = useState(true);
-  const [audioPosY, setaudioPosY] = useState(0);
 
-  const handleNavigation = useCallback(() => {
+  const [audioVol, setaudioVol] = useState(0);
+
+  const handleNavigation = () => {
+    let t = 0;
+    const maxVol = .07
+    const scrollY = window.scrollY;
+    const sectionBPosition = document.querySelector("#audio").offsetTop;
+
+    const transitionRange =
+      document.querySelector("#audio").offsetHeight * 0.85;
+
     if (
-      window.scrollY <
-      document.querySelector("#audio").offsetTop -
-        document.querySelector("#audio").offsetHeight
+      scrollY >= sectionBPosition - transitionRange &&
+      scrollY <= sectionBPosition + transitionRange
     ) {
-      setplayPause(true);
-    } 
-    else {
-        setplayPause(false);
-    //   if (y > window.scrollY) {
-    //     if (
-    //       window.scrollY <
-    //       document.querySelector("#audio").offsetTop -
-    //         document.querySelector("#audio").offsetHeight / 2
-    //     ) {
-    //       setaudioPosY(
-    //         document.querySelector("#audio").offsetTop - window.scrollY
-    //       );
-    //     } else {
-    //       setaudioPosY(
-    //         document.querySelector("#audio").offsetTop -
-    //           window.scrollY -
-    //           (document.querySelector("#audio").offsetTop - window.scrollY) / 2
-    //       );
-    //       console.log(
-    //         "up",
-    //         document.querySelector("#audio").offsetTop -
-    //           window.scrollY -
-    //           (document.querySelector("#audio").offsetTop - window.scrollY) / 2
-    //       );
-    //     }
-    //   } else if (y < window.scrollY) {
-    //     if (
-    //       window.scrollY <
-    //       document.querySelector("#audio").offsetTop -
-    //         document.querySelector("#audio").offsetHeight / 2
-    //     ) {
-    //       setaudioPosY(
-    //         document.querySelector("#audio").offsetTop + window.scrollY
-    //       );
-    //     } else {
-    //       setaudioPosY(
-    //         document.querySelector("#audio").offsetTop - window.scrollY
-    //       );
-    //       console.log(
-    //         "down",
-    //         document.querySelector("#audio").offsetTop - window.scrollY
-    //       );
-    //     }
-    //   }
+      const distanceFromSectionB = Math.abs(scrollY - sectionBPosition);
+      const value =  maxVol - (distanceFromSectionB / transitionRange) * maxVol
+      t = Math.max(0, Math.min(maxVol, value))
+
+    } else {
+      t = 0;
     }
-    setY(window.scrollY);
-  }, [y]);
+    setaudioVol(t);
+  };
 
   useEffect(() => {
-    setY(window.scrollY);
     window.addEventListener("scroll", handleNavigation);
 
     return () => {
@@ -69,5 +35,5 @@ export default function ScrollNavigation() {
     };
   }, [handleNavigation]);
 
-  return [audioPosY, playPause];
+  return [audioVol];
 }

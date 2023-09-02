@@ -8,13 +8,13 @@ import TypewriterShade from "../../../../public/Shadow";
 const Typewriter = ({isMobile}) => {
   return (
     <Scene
-      height={"35vh"}
-      width={"45vh"}
+      height={"55vh"}
+      width={"45vw"}
       smHeight={"30vh"}
-      smWidth={"35vh"}
+      smWidth={"60vw"}
       color={"white"}
       camPos={[6, 5, 6]}
-      target={[0, 1, 0]}
+      target={[0, 1.5, 0]}
       fov={55}
       DlightPos={[6, 5, 0]}
       Dintensity={2}

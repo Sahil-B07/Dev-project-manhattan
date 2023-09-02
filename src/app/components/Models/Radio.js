@@ -12,11 +12,13 @@ import RadioMusic from "../Audio/radioMusic";
 const Radio = () => {
   return (
     <Scene
-      height={"60vh"}
-      width={"45vh"}
+      height={"75vh"}
+      width={"45vw"}
+      smHeight={"40vh"}
+      smWidth={"50vw"}
       color={"white"}
       camPos={[0, 5.3, 13]}
-      target={[0, 1.7, 0]}
+      target={[0, 2, 0]}
       fov={25}
       DlightPos={[6, 5, 0]}
       Dintensity={2}
@@ -41,11 +43,11 @@ const RadioModel = () => {
 
   var delta = 0;
   useFrame(() => {
-    delta += 0.00;
+    delta += 0.003;
     if (modelRef.current) {
       modelRef.current.rotation.y = delta;
     }
-    
+
     // handle radio animation
     actions[names[0]].play();
   });
