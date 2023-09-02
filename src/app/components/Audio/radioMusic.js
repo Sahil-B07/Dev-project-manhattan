@@ -10,7 +10,7 @@ const RadioMusic = () => {
     sound.current.setLoop(true);
     sound.current.play()
     sound.current.setVolume(audioVol);
-
+    console.log(audioVol)
   }, [audioVol]);
 
   return (

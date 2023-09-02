@@ -1,6 +1,14 @@
+"use client"
 import Link from 'next/link'
+import { useState } from 'react'
+
 
 const Navbar = () => {
+
+  const [activeLink, setactiveLink] = useState('home')
+  const handleClick = (e)=>{
+    setactiveLink(e.current.value)
+  }
 
   return (
     <>
@@ -8,9 +16,9 @@ const Navbar = () => {
     <div className="w-screen backdrop-blur-[2px] text-neutral-300 p-2 flex-col md:flex-row justify-center items-center top-0 z-50 fixed">
 
       <nav className="md:ml-auto md:mr-auto flex text-base justify-center items-center mt-2">
-        <Link href={'/'} value='home' className={`mx-3 cursor-pointer`}>Home</Link>
-        <Link href={'/library'} value='library' className={`mx-3 cursor-pointer`}>Library</Link>
-        <Link href={'/about'} value='about' className={`mx-3 cursor-pointer`}>About</Link>
+        <Link href={'/'} value='home' onClick={handleClick} className={`mx-3 cursor-pointer ${activeLink==='home'?'active':null}`}>Home</Link>
+        <Link href={'/library'} value='library' onClick={handleClick} className={`mx-3 cursor-pointer`}>Library</Link>
+        <Link href={'/about'} value='about' onClick={handleClick} className={`mx-3 cursor-pointer`}>About</Link>
       </nav>
     </div>
     </>
