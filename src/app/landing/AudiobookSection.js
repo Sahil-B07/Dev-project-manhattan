@@ -12,9 +12,9 @@ const AudiobookSection = () => {
 
   return (
     <section className="bg-black h-screen flex" id="audio">
-      <div className="grid w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
+      <div className="grid grid-cols-3 w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
         <motion.div
-          className="flex md:col-span-3 justify-center items-center self-center relative"
+          className="col-span-2 md:col-span-3 justify-center items-center self-center relative"
           variants={"feature"}
           initial={{ opacity: 0, x: -100 }}
           whileInView={{
@@ -27,11 +27,11 @@ const AudiobookSection = () => {
           <Radio marginTop={100} radioOnOff={radioOnOff} />
           <div className="w-[50vw] h-[20vh] bg-transparent absolute lg:hidden"></div>
         </motion.div>
-        <div className="self-center">
+        <div className="self-center col-span-1">
           <button
             className={`rounded radio-btn ${
               !radioOnOff ? "animate-bounce" : 'animate-pulse'
-            } w-6 h-6`}
+            }`}
             onClick={handleClick}
           >
             <PiPlay
