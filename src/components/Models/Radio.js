@@ -43,13 +43,13 @@ const RadioModel = (props) => {
 
   var delta = 0;
   useFrame(() => {
-    {props.radioOnOff ? delta += 0.003 : delta = 0}
-    if (modelRef.current) {
+    {props.radioOnOff ? delta += 0.003 : null}
+    if (props.radioOnOff) {
       modelRef.current.rotation.y = delta;
     }
 
     // handle radio animation
-    actions[names[0]].play();
+    {props.radioOnOff ? actions[names[0]].play() : actions[names[0]].stop()}
   });
 
 
