@@ -6,7 +6,7 @@ export default function ScrollNavigation() {
 
   const handleNavigation = () => {
     let t = 0;
-    const maxVol = .07
+    const maxVol = .7
     const scrollY = window.scrollY;
     const sectionBPosition = document.querySelector("#audio").offsetTop;
 

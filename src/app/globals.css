@@ -25,5 +25,9 @@ background-color: black;
 
 body::-webkit-scrollbar-thumb {
 border-radius: 10px;
-background:rgb(164, 29, 176) ;
+background:#a41db0 ;
+}
+
+.radio-btn{
+    filter: drop-shadow(2px 2px 3px #d226e2);
 }

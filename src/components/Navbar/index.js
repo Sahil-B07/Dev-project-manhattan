@@ -12,7 +12,6 @@ const Navbar = () => {
 
   useEffect(() => {
     setactiveLink(pathname)
-    console.log(pathname)
   }, [pathname])
   
 

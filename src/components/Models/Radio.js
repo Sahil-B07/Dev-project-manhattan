@@ -9,7 +9,7 @@ import RadioShade from "../../../public/Shadow";
 import Scene from "../Canvas";
 import RadioMusic from "../../Audio/radioMusic";
 
-const Radio = () => {
+const Radio = (props) => {
   return (
     <Scene
       height={"75vh"}
@@ -28,13 +28,13 @@ const Radio = () => {
       SpDistance={14}
       ambIntensity={2.5}
     >
-      <RadioModel />
+      <RadioModel {...props}/>
       <ContactShadows opacity={0.6} blur={1} color="#000000" />
     </Scene>
   );
 };
 
-const RadioModel = () => {
+const RadioModel = (props) => {
   let model = RadioShade("/ModelFiles/radio/Radio2.glb");
   let base = RadioShade("/ModelFiles/stand/Stool_wood.glb");
 
@@ -43,7 +43,7 @@ const RadioModel = () => {
 
   var delta = 0;
   useFrame(() => {
-    delta += 0.003;
+    {props.radioOnOff ? delta += 0.003 : delta = 0}
     if (modelRef.current) {
       modelRef.current.rotation.y = delta;
     }
@@ -58,7 +58,7 @@ const RadioModel = () => {
       <group ref={modelRef} position={[0, 0, 0]} scale={1.2}>
         {/* Radio */}
         <mesh castShadow>
-          <RadioMusic/>
+          <RadioMusic {...props}/>
           <primitive
             object={model.scene}
             scale={1}
