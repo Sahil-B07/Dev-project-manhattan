@@ -24,7 +24,7 @@ const Navbar = () => {
     <div className="w-screen backdrop-blur-[2px] text-neutral-500 p-2 flex-col md:flex-row justify-center items-center top-0 z-50 fixed">
 
       <nav className="md:ml-auto md:mr-auto flex text-base justify-center items-center mt-2">
-        <Link href={'/landing'} className={`mx-3 cursor-pointer ${activeLink==='/landing'?active:null}`}>Home</Link>
+        <Link href={'/landing'} className={`mx-3 cursor-pointer ${activeLink==='/landing' || activeLink==='/'?active:null}`}>Home</Link>
         <Link href={'/landing/library'} className={`mx-3 cursor-pointer ${activeLink==='/landing/library'?active:null}`}>Library</Link>
         <Link href={'/landing/about'} className={`mx-3 cursor-pointer ${activeLink==='/landing/about'?active:null}`}>About</Link>
       </nav>
