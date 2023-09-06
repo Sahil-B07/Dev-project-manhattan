@@ -10,8 +10,8 @@ const Typewriter = ({isMobile}) => {
     <Scene
       height={"55vh"}
       width={"45vw"}
-      smHeight={"30vh"}
-      smWidth={"60vw"}
+      smHeight={"35vh"}
+      smWidth={"80vw"}
       color={"white"}
       camPos={[6, 5, 6]}
       target={[0, 1.5, 0]}
@@ -23,6 +23,8 @@ const Typewriter = ({isMobile}) => {
       SpLightPos={[2, 10, 0]}
       SpDistance={14}
       ambIntensity={1}
+      opacity={0.3}
+      mobFov={35}
     >
       <TypewriterModel isMobile={isMobile}/>
       <ContactShadows opacity={0.4} blur={1} color="#000000" position={[-0.1,0,0]} far={1} />
@@ -37,7 +39,7 @@ const TypewriterModel = ({isMobile}) => {
   const modelRef = React.useRef();
   var delta = 0;
   useFrame(() => {
-    delta += 0.01;
+    delta += 0.003;
     if (modelRef.current) {
       modelRef.current.rotation.y = -delta;
     }

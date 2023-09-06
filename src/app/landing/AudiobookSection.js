@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Radio from "../../components/Models/Radio";
-// import { RiMusic2Fill } from "react-icons/ri";
 import { PiPlay } from "react-icons/pi";
+import { featuresContent, featuresHead, radio } from "@/Constants/animation";
 
 const AudiobookSection = () => {
   const [radioOnOff, setradioOnOff] = useState(false);
@@ -11,37 +11,69 @@ const AudiobookSection = () => {
   };
 
   return (
-    <section className="bg-black h-screen flex" id="audio">
-      <div className="grid grid-cols-3 w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
+    <section className="bg-black h-full flex" id="audio">
+      <motion.div 
+      initial={"hidden"} whileInView={"visible"} viewport={{once:true}}
+      className="grid grid-cols-3 w-full justify-items-center md:grid md:grid-cols-6 p-6 md:p-0 relative z-10 md:m-0 my-10">
         <motion.div
-          className="col-span-2 md:col-span-3 justify-center items-center self-center relative"
-          variants={"feature"}
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1, delay: 0.8 },
-          }}
-          viewport={{ once: true }}
+          className="col-span-3 self-center mt-[10rem] md:mt-0 md:col-span-3 md:col-start-1 md:justify-center md:items-center md:self-center md:relative absolute"
+          variants={radio}
+          transition={{ duration: 1, delay: 1 }}
         >
           <Radio marginTop={100} radioOnOff={radioOnOff} />
-          <div className="w-[50vw] h-[20vh] bg-transparent absolute lg:hidden"></div>
         </motion.div>
-        <div className="self-center col-span-1">
+        
+        <div className="flex-col col-span-3 md:col-span-2 md:col-start-4 md:mt-24 relative">
+          <motion.h1 
+          variants={featuresHead}
+          transition={{ duration: 1.5, delay: 1.5 }}
+          className="text-[#dc2374] font-semibold text-xl md:text-3xl lg:whitespace-nowrap">
+            A New Chapter in Storytelling
+          </motion.h1>
+          <motion.p 
+          variants={featuresContent}
+          transition={{ duration: 1.5, delay: 1.6 }}
+          className="font-semibold text-white text-base md:text-base mt-5">
+            Immerse in Soundscaped Stories
+          </motion.p>
+          <motion.p 
+          variants={featuresContent}
+          transition={{ duration: 1.5, delay: 1.7 }}
+          className="font-light text-gray-400 text-sm md:text-base mt-3">
+            Elevate your reading adventure with our immersive soundscapes.
+            Explore stories that come to life through captivating music and
+            sound effects, making every word an unforgettable experience. Dive
+            into a new dimension of storytelling, where imagination knows no
+            bounds.
+          </motion.p>
+        
+
+
+        {/* play button */}
+        <motion.div 
+        variants={featuresContent}
+        transition={{ duration: 1.5, delay: 2.3 }}
+        className="mt-[25rem] mb-[2rem] md:mt-[15rem] md:mb-[4rem] col-span-1 col-start-3 flex justify-center relative">
           <button
             className={`rounded radio-btn ${
-              !radioOnOff ? "animate-bounce" : 'animate-pulse'
+              !radioOnOff ? "animate-bounce" : "animate-pulse"
             }`}
             onClick={handleClick}
           >
             <PiPlay
-              className={`scale-[2] hover:fill-pink-600 ${
+              className={`scale-[1.5] md:scale-[2] hover:fill-pink-600 ${
                 !radioOnOff ? "fill-pink-600" : "fill-pink-500"
               }`}
             />
           </button>
-        </div>
+          <p className={`text-white font-semibold text-sm ml-4 ${
+              !radioOnOff ? null : "animate-pulse"
+            }`}>  
+          Play the Symphony of Stories
+          </p>
+        </motion.div>
       </div>
+      </motion.div>
     </section>
   );
 };

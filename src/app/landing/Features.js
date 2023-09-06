@@ -1,23 +1,53 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Typewriter from "../../components/Models/Typewriter";
-import { typeWriter } from "@/Animation";
+import { featuresContent, featuresHead, typeWriter } from "@/Constants/animation";
+import { featureContent } from "@/Constants/constants";
 
 const Features = () => {
   return (
     <>
-      <section className="bg-black h-screen flex">
-      <div className="grid w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10 sm-cols-1">
-          <motion.div 
-          className="flex md:col-span-3 md:col-ends-5 justify-center items-center self-center relative"
-          variants={typeWriter}
-          initial={'hidden'}
-          whileInView={'visible'}
-          viewport={{once:true}}
+      <section className="bg-black h-full flex">
+        <div className="grid w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10 sm-cols-1 md:my-10">
+          <div className="flex-col md:col-span-2 md:col-start-2 mt-10">
+            <motion.div initial={"hidden"} whileInView={"visible"} viewport={{ once: true }}>
+              <motion.div
+                variants={featuresHead}
+                transition={{ duration: 1.5, delay: 0.5 }}
+                className="text-[#0dedff] font-semibold md:text-3xl text-xl"
+              >
+                Features
+              </motion.div>
+              <motion.p
+                variants={featuresHead}
+                transition={{ duration: 1, delay: 1 }}
+                className="font-light text-gray-400 md:text-base md:whitespace-nowrap text-sm mb-14"
+              >
+                Engage, Create, and Enjoy - Our Features Make It Possible
+              </motion.p>
+            
+
+            { featureContent.map((content,index)=>(
+              <motion.div key={index} className="md:text-base text-sm md:mt-5 mt-16"
+              variants={featuresContent}
+              transition={{ duration: 1, delay: 1.4 + index/10 }}
+              >
+                <p className="font-semibold text-white">{content.id}</p>
+                <p className="text-gray-400">{content.desc}</p>
+              </motion.div>
+            )) }
+            </motion.div>
+          </div>
+
+          {/*  Model */}
+          <motion.div
+            className="flex justify-self-center self-center -z-10 md:z-0 md:col-span-3 md:justify-center md:items-center md:self-center md:relative absolute"
+            variants={typeWriter}
+            initial={"hidden"}
+            whileInView={"visible"}
+            viewport={{ once: true }}
           >
             <Typewriter />
-            <div className="w-[50vw] h-[20vh] bg-transparent absolute lg:hidden">
-            </div>
           </motion.div>
         </div>
       </section>
@@ -26,15 +56,3 @@ const Features = () => {
 };
 
 export default Features;
-
-{
-  /* <motion.div
-  variants={"feature"}
-  initial={{ opacity: 0, x: -100 }}
-  whileInView={{
-    opacity: 1,
-    x: 0,
-    transition: { duration: 1, delay: 0.8 },
-  }}
-> */
-}

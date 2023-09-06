@@ -37,11 +37,13 @@ const Scene = (props) => {
     SpDistance,
     smHeight,
     smWidth,
-    ambIntensity
+    ambIntensity,
+    opacity,
+    mobFov
   } = props;
 
   const canvasStyle = isMobile
-    ? { height: smHeight, width: smWidth, overflow: "hidden" }
+    ? { height: smHeight, width: smWidth, overflow: "hidden", opacity:opacity}
     : { height: height, width: width, overflow: "hidden" };
 
   const childrenWithProps = React.Children.map(children, (child) => {
@@ -57,7 +59,7 @@ const Scene = (props) => {
     >
       <PerspectiveCamera
         position={camPos}
-        fov={fov}
+        fov={isMobile ? mobFov:fov}
         far={100}
         near={1}
         makeDefault

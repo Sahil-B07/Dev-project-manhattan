@@ -13,16 +13,17 @@ const Radio = (props) => {
   return (
     <Scene
       height={"75vh"}
-      width={"45vw"}
-      smHeight={"40vh"}
-      smWidth={"50vw"}
+      width={"45vh"}
+      smHeight={"55vh"}
+      smWidth={"45vh"}
       color={"white"}
       camPos={[0, 5.3, 13]}
       target={[0, 2, 0]}
+      mobFov={23}
       fov={25}
       DlightPos={[6, 5, 0]}
       Dintensity={2}
-      SpColor={"orange"}
+      SpColor={"#a41db0"}
       SpIntensity={50}
       SpLightPos={[1, 4, 2.5]}
       SpDistance={14}
