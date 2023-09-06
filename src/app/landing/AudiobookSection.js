@@ -11,20 +11,6 @@ const AudiobookSection = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <section className="bg-black h-screen flex" id="audio">
-      <div className="grid grid-cols-3 w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10">
-        <motion.div
-          className="col-span-2 md:col-span-3 justify-center items-center self-center relative"
-          variants={"feature"}
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{
-            opacity: 1,
-            x: 0,
-            transition: { duration: 1, delay: 0.8 },
-          }}
-          viewport={{ once: true }}
-=======
     <section className="bg-black h-full flex" id="audio">
       <motion.div 
       initial={"hidden"} whileInView={"visible"} viewport={{once:true}}
@@ -33,16 +19,9 @@ const AudiobookSection = () => {
           className="col-span-3 self-center mt-[10rem] md:mt-0 md:col-span-3 md:col-start-1 md:justify-center md:items-center md:self-center md:relative absolute"
           variants={radio}
           transition={{ duration: 1, delay: 1 }}
->>>>>>> 90dc2b1cd23ad1124e5ca6e65bb86d6acd543099
         >
           <Radio marginTop={100} radioOnOff={radioOnOff} />
         </motion.div>
-<<<<<<< HEAD
-        <div className="self-center col-span-1">
-          <button
-            className={`rounded radio-btn ${
-              !radioOnOff ? "animate-bounce" : 'animate-pulse'
-=======
         
         <div className="flex-col col-span-3 md:col-span-2 md:col-start-4 md:mt-24 relative">
           <motion.h1 
@@ -78,7 +57,6 @@ const AudiobookSection = () => {
           <button
             className={`rounded radio-btn ${
               !radioOnOff ? "animate-bounce" : "animate-pulse"
->>>>>>> 90dc2b1cd23ad1124e5ca6e65bb86d6acd543099
             }`}
             onClick={handleClick}
           >
