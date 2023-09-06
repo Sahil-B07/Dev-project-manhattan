@@ -2,15 +2,15 @@ import React, { Suspense } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ImQuill } from "react-icons/im";
-import { headPara, headText } from "@/Animation";
+import { headPara, headText } from "@/Constants/animation";
 import DisSphere from "../../components/Models/DisSphere";
 
 
 const Hero = () => {
 
   return (
-    <section className="bg-neutral-950 h-screen flex">
-      <div className="hidden divide-x-2 divide-gray-100 opacity-10 md:grid md:grid-cols-6 pointer-events-none absolute top-0 left-0 w-full h-screen z-0">
+    <section className="bg-black h-screen flex">
+      <div className="hidden divide-x divide-double divide-gray-100 opacity-10 md:grid md:grid-cols-6 pointer-events-none absolute top-0 left-0 w-full h-screen z-0">
         <div></div>
         <div></div>
         <div></div>
@@ -56,7 +56,6 @@ const Hero = () => {
               y: 0,
               transition: { duration: 0.8, delay: 0.6 },
             }}
-            viewport={{ once: true }}
           >
             <span>Get Started &nbsp;</span>
             <span className="relative inline-flex h-4 w-4">
@@ -98,7 +97,7 @@ const Hero = () => {
       </div>
       
 
-      <div className="md:opacity-50 md:h-20 w-full z-0 bottom-0 left-0 bg-gradient-to-t from-black from-5% to-[#00000001] absolute to-95%"></div>
+      <div className="md:opacity-60 md:h-20 w-full z-10 bottom-0 left-0 bg-gradient-to-t from-black from-5% to-[#00000001] absolute to-95%"></div>
       <div className="border-0 md:border-b-2 border-gray-100 opacity-10 w-full z-0 bottom-0 left-0 absolute"></div>
     </section>
   );

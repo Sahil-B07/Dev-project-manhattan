@@ -14,6 +14,7 @@ const DisSphere = () => {
       camPos={[0, 3, 5]}
       target={[0, 0, 0]}
       fov={70}
+      mobFov={60}
       DlightPos={[3, 2, 1]}
       Dintensity={4}
     >
