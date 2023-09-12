@@ -31,3 +31,39 @@ background:#a41db0 ;
 .radio-btn{
     filter: drop-shadow(2px 2px 3px #d226e2);
 }
+
+.slick-slide > div {
+    margin: 0 27px;
+}
+
+.slick-list {
+    height: 53vh;
+}
+
+/* shape divider */
+
+.custom-shape-divider-bottom {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    background: #FCA311;
+    rotate: 180deg;
+}
+
+.custom-shape-divider-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 86px;
+}
+
+.custom-shape-divider-bottom .shape-fill {
+    fill: #e3f6f5;
+}
+
+.shape-fill{
+    filter:drop-shadow(2px 1px 4px black);
+}

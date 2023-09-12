@@ -13,6 +13,19 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      animation: {
+        shine: 'shine 2s infinite;',
+      },
+      keyframes: {
+        shine: {
+          '0%': {
+            'transform': 'translateX(-100%)',
+          },
+          '100%': {
+            'transform': 'translateX(100%)',
+          }
+        },
+      },
     },
     screens: {
       'sm': '640px',

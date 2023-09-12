@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
 
 export default function ScrollNavigation() {
-
   const [audioVol, setaudioVol] = useState(0);
 
   const handleNavigation = () => {
     let t = 0;
-    const maxVol = .7
+    const maxVol = 0.7;
     const scrollY = window.scrollY;
-    const sectionBPosition = document.querySelector("#audio").offsetTop;
+    try {
+      const sectionBPosition = document.querySelector("#audio").offsetTop;
 
-    const transitionRange =
-      document.querySelector("#audio").offsetHeight * 0.85;
+      const transitionRange =
+        document.querySelector("#audio").offsetHeight * 0.85;
 
-    if (
-      scrollY >= sectionBPosition - transitionRange &&
-      scrollY <= sectionBPosition + transitionRange
-    ) {
-      const distanceFromSectionB = Math.abs(scrollY - sectionBPosition);
-      const value =  maxVol - (distanceFromSectionB / transitionRange) * maxVol
-      t = Math.max(0, Math.min(maxVol, value))
-
-    } else {
-      t = 0;
+      if (
+        scrollY >= sectionBPosition - transitionRange &&
+        scrollY <= sectionBPosition + transitionRange
+      ) {
+        const distanceFromSectionB = Math.abs(scrollY - sectionBPosition);
+        const value =
+          maxVol - (distanceFromSectionB / transitionRange) * maxVol;
+        t = Math.max(0, Math.min(maxVol, value));
+      } else {
+        t = 0;
+      }
+      setaudioVol(t);
+    } catch (error) {
+      console.log(error);
     }
-    setaudioVol(t);
   };
 
   useEffect(() => {

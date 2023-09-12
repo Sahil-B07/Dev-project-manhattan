@@ -1,26 +1,17 @@
-
-import React from 'react'
-
-
-export async function getData() {
-  const res = await fetch('http://127.0.0.1:8000/api/books', {method:'GET'})
- 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  const json = await res.json()
-  return json
-}
-
+import React from "react";
+import AllBooks from "./AllBooks";
+import Carousel from "@/components/Carousel/Carousel";
+import GetBooks from "./GetBooks";
 
 const Library = () => {
-
-
   return (
     <>
-    <p className='text-black'>Hello</p>
+      <section className="h-full w-full">
+        <Carousel />
+        <AllBooks children={<GetBooks />} />
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Library
+export default Library;

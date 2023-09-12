@@ -7,7 +7,7 @@ import { featureContent } from "@/Constants/constants";
 const Features = () => {
   return (
     <>
-      <section className="bg-black h-full flex">
+      <section className="bg-black h-screen flex">
         <div className="grid w-full md:grid md:grid-cols-6 p-6 md:p-0 relative z-10 sm-cols-1 md:my-10">
           <div className="flex-col md:col-span-2 md:col-start-2 mt-10">
             <motion.div initial={"hidden"} whileInView={"visible"} viewport={{ once: true }}>
