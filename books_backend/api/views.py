@@ -23,13 +23,14 @@ class BookRetrieveUpdateView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         book_id = self.kwargs['pk']
-        return generics.get_object_or_404(Book, pk=book_id)
+        return generics.get_object_or_404(Book, book_id=book_id)
 
     def get(self, request, *args, **kwargs):
         book = self.get_object()
         book_id = book.book_id
         url = f'https://gutenberg.org/cache/epub/{book_id}/pg{book_id}-images.html.utf8'
         response = requests.get(url)
+
 
         if response.status_code == 200:
             html_content = response.text
