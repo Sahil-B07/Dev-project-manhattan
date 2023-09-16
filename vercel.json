@@ -2,12 +2,15 @@
     "version": 2,
     "builds": [
       {
-        "src": "manhattan/src/app/page.js",   
-        "use": "@vercel/node" 
+        "src": "manhattan/books_backend",    
+        "use": "@vercel/python" 
       }
     ],
     "routes": [
-      
+      {
+        "src": "/(.*)", 
+        "dest": "manhattan/books_backend/books_backend/wsgi.py" 
+      },
       {
         "src": "/(.*)", 
         "dest": "/manhattan/$1" 
