@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-p@rzh3_pguqrm0)0+37@5@1zg5=yl_-!8c#fcdv!*kb!7f*ig4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
 
 
 # Application definition
@@ -76,7 +76,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "books_backend.wsgi.application"
+# WSGI_APPLICATION = "books_backend.wsgi.application"
+WSGI_APPLICATION = "books_backend.wsgi.app"
 
 
 # Database
