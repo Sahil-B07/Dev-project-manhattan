@@ -3,7 +3,7 @@
     "builds": [
         { "src": "*.js", "use": "@vercel/node" },
       {
-        "src": "manhattan/books_backend/books_backend/wsgi.py",
+        "src": "*.py",
         "use": "@vercel/python"
       }
     ],
