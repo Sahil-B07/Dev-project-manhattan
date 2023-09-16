@@ -1,16 +1,10 @@
 {
     "version": 2,
     "builds": [
+        { "src": "*.js", "use": "@vercel/node" },
       {
         "src": "manhattan/books_backend/books_backend/wsgi.py",
         "use": "@vercel/python"
-      },
-      {
-        "src": "build.sh",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "staticfiles_build"
-        }
       }
     ],
     "routes": [
