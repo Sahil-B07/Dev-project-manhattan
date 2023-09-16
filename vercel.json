@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "manhattan",   
+        "src": "manhattan/src/app/page.js",   
         "use": "@vercel/node" 
       }
     ],
