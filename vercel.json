@@ -16,12 +16,12 @@
     ],
     "routes": [
       {
-        "src": "/static/(.*)",
-        "dest": "/static/$1"
+        "src": "/(.*)",
+        "dest": "manhattan/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "projectname/wsgi.py"
+        "dest": "manhattan/books_backend/books_backend/wsgi.py"
       }
     ]
   }
