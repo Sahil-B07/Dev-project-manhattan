@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "concurrently \"next build\" \" python3 books_backend/manage.py runserver \" ",
+    "build": "concurrently \"next build\" \" python3 --version \" ",
     "start": "next start",
     "lint": "next lint",
     "both": "concurrently \"npm run dev\" \" python3 books_backend/manage.py runserver \" "
