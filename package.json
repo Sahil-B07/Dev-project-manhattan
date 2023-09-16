@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "both": "concurrently \"npm run dev\" \" python3 /manhattan/books_backend/manage.py runserver \" "
+    "both": "concurrently \"npm run dev\" \" python3 books_backend/manage.py runserver \" "
   },
   "dependencies": {
     "@react-three/drei": "^9.80.1",
