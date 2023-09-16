@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "manhattan/books_backend",    
+        "src": "manhattan/books_backend/books_backend/wsgi.py",    
         "use": "@vercel/python" 
       }
     ],
