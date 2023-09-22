@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
 
 import Scene from "../Canvas";
 import TypewriterShade from "../../../public/Shadow";
+import CamControl from "@/Utils/CamControl";
 
 const Typewriter = ({isMobile}) => {
   return (
     <Scene
-      height={"55vh"}
+      height={"60vh"}
       width={"45vw"}
       smHeight={"35vh"}
       smWidth={"80vw"}
       color={"white"}
       camPos={[6, 5, 6]}
-      target={[0, 1.5, 0]}
-      fov={55}
+      target={[0, 1, 0]}
+      fov={60}
       DlightPos={[6, 5, 0]}
       Dintensity={2}
       SpColor={"orange"}
@@ -27,7 +28,6 @@ const Typewriter = ({isMobile}) => {
       mobFov={35}
     >
       <TypewriterModel isMobile={isMobile}/>
-      <ContactShadows opacity={0.4} blur={1} color="#000000" position={[-0.1,0,0]} far={1} />
     </Scene>
   );
 };
@@ -36,7 +36,7 @@ const TypewriterModel = ({isMobile}) => {
   let model = TypewriterShade("/ModelFiles/typewriter/Typewriter.glb");
 
 
-  const modelRef = React.useRef();
+  const modelRef = useRef();
   var delta = 0;
   useFrame(() => {
     delta += 0.003;
@@ -44,6 +44,10 @@ const TypewriterModel = ({isMobile}) => {
       modelRef.current.rotation.y = -delta;
     }
   });
+
+
+// on mouse move
+CamControl(modelRef)
 
   return (
     <>

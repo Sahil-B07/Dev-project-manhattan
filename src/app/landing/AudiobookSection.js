@@ -20,7 +20,8 @@ const AudiobookSection = () => {
           variants={radio}
           transition={{ duration: 1, delay: 1 }}
         >
-          <Radio marginTop={100} radioOnOff={radioOnOff} />
+          {/* Model */}
+          <Radio radioOnOff={radioOnOff} />
         </motion.div>
         
         <div className="flex-col col-span-3 md:col-span-2 md:col-start-4 md:mt-24 relative">

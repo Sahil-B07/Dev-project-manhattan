@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
-import {
-  ContactShadows,
-  PositionalAudio,
-  useAnimations,
-} from "@react-three/drei";
+import { ContactShadows, useAnimations } from "@react-three/drei";
 import RadioShade from "../../../public/Shadow";
 import Scene from "../Canvas";
 import RadioMusic from "../../Audio/radioMusic";
+import CamControl from "@/Utils/CamControl";
 
 const Radio = (props) => {
+  
   return (
     <Scene
       height={"75vh"}
@@ -29,8 +27,7 @@ const Radio = (props) => {
       SpDistance={14}
       ambIntensity={2.5}
     >
-      <RadioModel {...props}/>
-      <ContactShadows opacity={0.6} blur={1} color="#000000" />
+      <RadioModel {...props} />
     </Scene>
   );
 };
@@ -39,27 +36,33 @@ const RadioModel = (props) => {
   let model = RadioShade("/ModelFiles/radio/Radio2.glb");
   let base = RadioShade("/ModelFiles/stand/Stool_wood.glb");
 
-  const modelRef = React.useRef();
+  const modelRef = useRef();
   const { actions, names } = useAnimations(model.animations, modelRef);
 
   var delta = 0;
   useFrame(() => {
-    {props.radioOnOff ? delta += 0.003 : null}
+    {
+      props.radioOnOff ? (delta += 0.003) : null;
+    }
     if (props.radioOnOff) {
       modelRef.current.rotation.y = delta;
     }
 
     // handle radio animation
-    {props.radioOnOff ? actions[names[0]].play() : actions[names[0]].stop()}
-  });
+    {
+      props.radioOnOff ? actions[names[0]].play() : actions[names[0]].stop();
+    }
+  }, []);
 
+// on mouse move
+  CamControl(modelRef)
 
   return (
     <>
       <group ref={modelRef} position={[0, 0, 0]} scale={1.2}>
         {/* Radio */}
         <mesh castShadow>
-          <RadioMusic {...props}/>
+          <RadioMusic {...props} />
           <primitive
             object={model.scene}
             scale={1}
@@ -81,3 +84,26 @@ const RadioModel = (props) => {
 };
 
 export default Radio;
+
+
+
+
+// useEffect(() => {
+//   const onMouseMove = event => {
+//     const camx = 0
+//     const camy = 5.3
+//     let changex = event.clientX - camx;
+//     let changey = event.clientY - camy;
+
+//       modelRef.current.rotation.y = (camx + changex / -300);
+//       modelRef.current.rotation.y = (camy - changey / 300);
+//   };
+
+
+//     window.addEventListener('mousemove', onMouseMove);
+
+
+//   return () => {
+//     window.removeEventListener('mousemove', onMouseMove);
+//   };
+// }, []);

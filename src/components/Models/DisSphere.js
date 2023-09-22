@@ -1,8 +1,13 @@
 import { MeshDistortMaterial, Sphere } from "@react-three/drei";
-import React from "react";
+import React, { useRef } from "react";
 import Scene from "../Canvas";
+import CamControl from "@/Utils/CamControl";
 
 const DisSphere = () => {
+
+  const modelRef = useRef();
+// on mouse move
+CamControl(modelRef)
   
   return (
     <Scene
@@ -18,7 +23,7 @@ const DisSphere = () => {
       DlightPos={[3, 2, 1]}
       Dintensity={4}
     >
-      <Sphere args={[1, 100, 200]} scale={2.7}>
+      <Sphere args={[1, 100, 200]} scale={2.7} ref={modelRef}>
         <MeshDistortMaterial
           color={"#9E58AA"}
           attach={"material"}

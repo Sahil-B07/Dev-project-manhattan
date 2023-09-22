@@ -4,23 +4,6 @@ import { OrbitControls, PerspectiveCamera, Preload } from "@react-three/drei";
 
 const Scene = (props) => {
   const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (e) => {
-      setIsMobile(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
-  }, []);
-
   const {
     height,
     width,
@@ -39,16 +22,32 @@ const Scene = (props) => {
     smWidth,
     ambIntensity,
     opacity,
-    mobFov
+    mobFov,
   } = props;
 
   const canvasStyle = isMobile
-    ? { height: smHeight, width: smWidth, overflow: "hidden", opacity:opacity}
+    ? { height: smHeight, width: smWidth, overflow: "hidden", opacity: opacity }
     : { height: height, width: width, overflow: "hidden" };
 
   const childrenWithProps = React.Children.map(children, (child) => {
     return React.cloneElement(child, { isMobile: isMobile });
   });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (e) => {
+      setIsMobile(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <Canvas
@@ -59,18 +58,18 @@ const Scene = (props) => {
     >
       <PerspectiveCamera
         position={camPos}
-        fov={isMobile ? mobFov:fov}
+        fov={isMobile ? mobFov : fov}
         far={100}
         near={1}
         makeDefault
       />
-        <OrbitControls
-          enableZoom={false}
-          minPolarAngle={0}
-          maxPolarAngle={Math.PI / 1.9}
-          target={target}
-          makeDefault
-        />
+      <OrbitControls
+        enableZoom={false}
+        minPolarAngle={0}
+        maxPolarAngle={Math.PI / 1.9}
+        target={target}
+        makeDefault
+      />
       <ambientLight intensity={ambIntensity} />
       <directionalLight
         color={color}
