@@ -1,15 +1,22 @@
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 import { FaBookOpenReader } from "react-icons/fa6";
 
+
 const Card = ({ book }) => {
   return (
-    <Link
-    href={`books/${book.book_id}`}
-      key={book.book_id}
+    <motion.div 
+    initial={{opacity:0}}
+    animate={{opacity:1}}
+    transition={{duration:1}}
+    viewport={{once:true}}
       className="card grid md:grid-rows-4 h-[40vh] w-[13vw] rounded shadow-lg hover:shadow-xl hover:shadow-[#5d4a7c76] bg-[#fffffe]"
     >
-      <div className="card-top md:row-span-3 pt-2 flex justify-center">
+      <Link href={`books/${book.book_id}`}
+      key={book.book_id}>
+      <div 
+      className="card-top md:row-span-3 pt-2 flex justify-center">
         <img
           alt={book.book_title}
           width={100}
@@ -28,7 +35,8 @@ const Card = ({ book }) => {
           <h3 className="text-[#2d334a] hover:animate-pulse text-xs flex items-center cursor-pointer">Read &nbsp;<FaBookOpenReader className="stroke-[#272343]"/> </h3>
         </div>
       </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 };
 

@@ -1,5 +1,6 @@
-export async function GetData() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BOOKS_API}books/`, {
+export async function GetData(PageNo) {
+  
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BOOKS_API}books/?page=${PageNo}`, {
       method: "GET",
     });
   

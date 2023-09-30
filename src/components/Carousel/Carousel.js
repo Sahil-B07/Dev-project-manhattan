@@ -15,7 +15,7 @@ const Carousel = () => {
   const slider = useRef(null)
 
   useEffect(() => {
-    GetData()
+    GetData(1)
       .then((response) => {
         setBooks(response);
         console.log("success");

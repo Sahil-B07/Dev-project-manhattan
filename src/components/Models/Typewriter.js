@@ -3,7 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
 
 import Scene from "../Canvas";
-import TypewriterShade from "../../../public/Shadow";
+import TypewriterShade from "../../Utils/Shadow";
 import CamControl from "@/Utils/CamControl";
 
 const Typewriter = ({isMobile}) => {

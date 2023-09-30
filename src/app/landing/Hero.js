@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ImQuill } from "react-icons/im";
 import { headPara, headText } from "@/Constants/animation";
 import DisSphere from "../../components/Models/DisSphere";
+import Link from "next/link";
 
 
 const Hero = () => {
@@ -49,7 +50,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.button
-            className="bg-fuchsia-700 md:flex-row self-start p-2 hover:bg-fuchsia-600 rounded font-bold"
+            className="bg-fuchsia-600 md:flex-row self-start p-2 hover:bg-fuchsia-700 rounded font-bold"
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,
@@ -57,6 +58,7 @@ const Hero = () => {
               transition: { duration: 0.8, delay: 0.6 },
             }}
           >
+            <Link href={'/login'}>
             <span>Get Started &nbsp;</span>
             <span className="relative inline-flex h-4 w-4">
               <span className="animate-ping absolute h-full w-full rounded-full bg-neutral-100 opacity-75"></span>
@@ -75,6 +77,7 @@ const Hero = () => {
               exit={{x:-20}}
               ><ImQuill className="scale-125" /></motion.div>
             </span>
+            </Link>
             &nbsp;
           </motion.button>
         </div>

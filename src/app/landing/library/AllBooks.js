@@ -1,4 +1,4 @@
-"use client";
+
 import React from "react";
 
 const AllBooks = ({ children }) => {
@@ -10,11 +10,11 @@ const AllBooks = ({ children }) => {
     </svg>
 </div>
 
-      <div className="grid grid-row-2 w-full h-full justify-center p-24">
-        <h1 className="font-bold flex text-5xl text-[#1d315b]">Trending</h1>
-        <div className="grid w-full gap-8 md:grid md:grid-cols-5 p-6 md:p-0 relative z-10 sm-cols-1 md:my-10">
+      <h1 className="font-bold flex text-5xl pl-20 text-[#1d315b]">Trending</h1>
+      <div className="grid grid-row-2 w-full h-full justify-center p-16 relative">
+        
           {children}
-        </div>
+
       </div>
     </div>
   );

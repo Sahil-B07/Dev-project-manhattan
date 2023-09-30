@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import { ContactShadows, useAnimations } from "@react-three/drei";
-import RadioShade from "../../../public/Shadow";
+import RadioShade from "../../Utils/Shadow";
 import Scene from "../Canvas";
 import RadioMusic from "../../Audio/radioMusic";
 import CamControl from "@/Utils/CamControl";

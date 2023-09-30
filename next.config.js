@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
         domains: ['gutenberg.org'], 
       },
+
 }
 
 module.exports = nextConfig
