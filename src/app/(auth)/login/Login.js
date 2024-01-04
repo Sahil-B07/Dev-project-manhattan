@@ -8,10 +8,12 @@ import { useRouter } from "next/navigation";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthFeedback from "@/Utils/AuthFeedback";
+import PulseDot from "@/components/Spinner/PulseDot";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false)
   const router = useRouter();
 
   const handleChange = (e) => {
@@ -24,13 +26,19 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     const payloadData = { email, password };
-    const response = await AuthFeedback(payloadData)
-    console.log(response)
+    const response = await AuthFeedback(payloadData, 'login')
+
     if (response.status == 200){
       setTimeout(() => {
-        router.push("/");
+        router.push("/landing");
+      }, 2000);
+    }
+    else{
+      setTimeout(() => {
+        setLoading(false)
       }, 2000);
     }
   };
@@ -92,10 +100,11 @@ const Login = () => {
                   />
                   <button
                     onClick={handleSubmit}
-                    className="focus:shadow-outline mt-5 flex w-full max-w-sm items-center justify-center rounded-lg bg-blue-400 py-2 font-bold text-black shadow-xl transition-all duration-300 ease-in-out hover:bg-blue-500 hover:shadow focus:shadow-sm focus:outline-none"
+                    disabled={loading}
+                    className={`${loading?'cursor-not-allowed':null} focus:shadow-outline mt-5 flex w-full max-w-sm items-center justify-center rounded-lg bg-blue-400 py-2 font-bold text-black shadow-xl transition-all duration-300 ease-in-out hover:bg-blue-500 hover:shadow focus:shadow-sm focus:outline-none`}
                   >
-                    <PiUserCircleLight className="scale-[1.5]" />
-                    <span className="ml-2">Sign In</span>
+                    {!loading ? (<><PiUserCircleLight className="scale-[1.5]" />
+                    <span className="ml-2">Sign In</span></>):(<div className="h-6"> <PulseDot/> </div>)}
                   </button>
 
                   <p className="mt-6 text-center text-xs text-zinc-600">

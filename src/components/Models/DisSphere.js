@@ -1,3 +1,4 @@
+"use client"
 import { MeshDistortMaterial, Sphere } from "@react-three/drei";
 import React, { useRef } from "react";
 import Scene from "../Canvas";

@@ -18,7 +18,6 @@ const Carousel = () => {
     GetData(1)
       .then((response) => {
         setBooks(response);
-        console.log("success");
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -32,7 +31,7 @@ const Carousel = () => {
         <Slider arrows={false} ref={slider} {...carouselSettings}>
         {books.map((book) => {
           return (
-            <Card book={book}/>
+            <Card key={book.book_id} book={book}/>
           );
         })}
         </Slider>

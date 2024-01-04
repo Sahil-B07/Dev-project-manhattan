@@ -10,7 +10,7 @@ import Loading from "./loading";
 
 const GetBooks = () => {
   const [books, setBooks] = useState([]);
-  const [PageNo, setPageNo] = useState(0);
+  const [PageNo, setPageNo] = useState(1);
   const [hasNext, sethasNext] = useState(true);
   const [loading, setLoading] = useState(true);
 

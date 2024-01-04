@@ -1,6 +1,6 @@
+"use client"
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { ContactShadows } from "@react-three/drei";
 
 import Scene from "../Canvas";
 import TypewriterShade from "../../Utils/Shadow";

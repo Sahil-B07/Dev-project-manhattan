@@ -1,3 +1,4 @@
+"use client"
 import React, { Suspense } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -5,12 +6,13 @@ import { ImQuill } from "react-icons/im";
 import { headPara, headText } from "@/Constants/animation";
 import DisSphere from "../../components/Models/DisSphere";
 import Link from "next/link";
+import PulseDot from "@/components/Spinner/PulseDot";
 
 
 const Hero = () => {
 
   return (
-    <section className="bg-black h-screen flex">
+    <section className="bg-black h-screen flex relative">
       <div className="hidden divide-x divide-double divide-gray-100 opacity-10 md:grid md:grid-cols-6 pointer-events-none absolute top-0 left-0 w-full h-screen z-0">
         <div></div>
         <div></div>
@@ -50,7 +52,7 @@ const Hero = () => {
           </motion.p>
 
           <motion.button
-            className="bg-fuchsia-600 md:flex-row self-start p-2 hover:bg-fuchsia-700 rounded font-bold"
+            className="bg-fuchsia-600 md:flex-row self-start p-2 hover:bg-fuchsia-700 rounded font-bold text-black"
             initial={{ opacity: 0, y: 30 }}
             animate={{
               opacity: 1,

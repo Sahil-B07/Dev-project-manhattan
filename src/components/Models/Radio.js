@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { ContactShadows, useAnimations } from "@react-three/drei";
+import { useAnimations } from "@react-three/drei";
 import RadioShade from "../../Utils/Shadow";
 import Scene from "../Canvas";
 import RadioMusic from "../../Audio/radioMusic";

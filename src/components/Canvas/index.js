@@ -23,6 +23,7 @@ const Scene = (props) => {
     ambIntensity,
     opacity,
     mobFov,
+    ref,
   } = props;
 
   const canvasStyle = isMobile
@@ -51,6 +52,7 @@ const Scene = (props) => {
 
   return (
     <Canvas
+    ref={ref}
       style={canvasStyle}
       shadows
       dpr={[1, 2]}

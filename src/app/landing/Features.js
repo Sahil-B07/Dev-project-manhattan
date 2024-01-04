@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { motion } from "framer-motion";
 import Typewriter from "../../components/Models/Typewriter";
@@ -41,6 +42,7 @@ const Features = () => {
 
           {/*  Model */}
           <motion.div
+          id="radio_model"
             className="flex justify-self-center self-center -z-10 md:z-0 md:col-span-3 md:justify-center md:items-center md:self-center md:relative absolute"
             variants={typeWriter}
             initial={"hidden"}

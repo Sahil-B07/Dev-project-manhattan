@@ -2,12 +2,12 @@ import React from "react";
 
 const DummyCard = ()=>{
     return (
-        <div class="bg-white p-2 h-[40vh] rounded shadow-lg flex flex-col select-none ">
+        <div className="bg-white p-2 h-[40vh] rounded shadow-lg flex flex-col select-none ">
             <div className="grid grid-rows-5">
-              <div class="row-span-4 h-[30vh] w-[12vw] rounded bg-gray-200 animate-pulse"></div>
+              <div className="row-span-4 h-[30vh] w-[12vw] rounded bg-gray-200 animate-pulse"></div>
               <div className="py-2 row-span-1 items-end">
-              <div class="row-span-1  bg-gray-300 animate-pulse h-3 rounded-2xl"></div>
-              <div class="row-span-1 mt-2 bg-gray-400 w-12 h-3 animate-pulse rounded"></div>
+              <div className="row-span-1  bg-gray-300 animate-pulse h-3 rounded-2xl"></div>
+              <div className="row-span-1 mt-2 bg-gray-400 w-12 h-3 animate-pulse rounded"></div>
               </div>
             </div>
           </div>

@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 
 const CamControl = (modelRef) => {
+  
   useEffect(() => {
     const onMouseMove = event => {
       event.preventDefault();
-      const { innerWidth, innerHeight } = window;
-
+      const element = document.getElementById("radio_model");
+      var rect = element.getBoundingClientRect();
       const position = {
-        x: (event.clientX / window.innerWidth) * 2 - 1,
-        y: - (event.clientY / window.innerHeight) * 2 + 1,
+      x : ((event.clientX - rect.left) / window.innerWidth) * 2 - 1,
+      y : -((event.clientY - rect.top) / window.innerHeight) * 2 + 1,
       };
-
       try {
-        modelRef.current.rotation.x = (position.x / 2);
-        modelRef.current.rotation.y = -(position.y / 2);
+        modelRef.current.rotation.x = position.x / 15;
+        modelRef.current.rotation.y = position.y / 15
       } catch (error) {
         console.log(error)
       }

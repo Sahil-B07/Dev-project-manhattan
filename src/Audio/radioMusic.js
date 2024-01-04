@@ -8,7 +8,6 @@ const RadioMusic = ({radioOnOff}) => {
 
   useEffect(() => {
     sound.current.setVolume(audioVol);
-    console.log(audioVol)
   }, [audioVol]);
   useEffect(() => {
     sound.current.setLoop(true)
