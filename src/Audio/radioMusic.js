@@ -11,15 +11,15 @@ const RadioMusic = ({radioOnOff}) => {
   }, [audioVol]);
   useEffect(() => {
     sound.current.setLoop(true)
+    sound.current.setVolume(.6);
     {radioOnOff ? sound.current.play() : sound.current.pause()}
-    sound.current.setVolume(0.6);
   
   }, [radioOnOff])
   
 
   return (
     <group position={[0, 0, 0]}>
-      <PositionalAudio ref={sound} url="/song.mp3" />
+      <PositionalAudio ref={sound} url="/song1.mp3" offset={18}  />
     </group>
   );
 };

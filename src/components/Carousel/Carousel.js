@@ -1,7 +1,7 @@
 "use client";
 
 import { GetData } from "@/Utils/GetData";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import { IoMdArrowRoundBack, IoMdArrowRoundForward } from "react-icons/io";
 
